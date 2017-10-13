@@ -1,23 +1,26 @@
 import * as React from "react";
 
-import PresentationComponent, { PresentationComponentProps } from "../PresentationComponent/PresentationComponent";
+import PresentationComponent, {PresentationComponentProps} from "../PresentationComponent/PresentationComponent";
 
 import * as statusStyles from "./Status.pcss";
 
 interface StatusProps extends PresentationComponentProps {
   statusText: String;
-  positive: Boolean;
+  status: String;
 }
 
 export default class Status extends PresentationComponent<StatusProps, {}> {
   public render() {
-    const { statusText, children, positive } = this.props;
+    const {statusText, children, status} = this.props;
 
-    const positiveHexCode = "#28a745";
-    const negativeHexCode = "red";
+    const statusHexcodes = {
+      ok: "#64ce11",
+      error: "#df0a00",
+      warning: "#df8f00"
+    };
 
     const statusInlineStyles = {
-      background: positive ? positiveHexCode : negativeHexCode
+      background: statusHexcodes[status]
     };
 
     return (
