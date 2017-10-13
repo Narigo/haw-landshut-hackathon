@@ -8,6 +8,7 @@ interface BatteryProps extends PresentationComponentProps {
   airConditioning: string;
   puffer: string;
   charging: string;
+  chargeStatus: number,
   batteryChargeStatus?: number;
   batteryState: string;
 }
