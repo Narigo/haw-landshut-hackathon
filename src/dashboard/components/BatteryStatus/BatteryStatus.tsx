@@ -1,5 +1,5 @@
 import * as React from "react";
-import PresentationComponent, { PresentationComponentProps } from "../PresentationComponent/PresentationComponent";
+import PresentationComponent, {PresentationComponentProps} from "../PresentationComponent/PresentationComponent";
 import * as batteryStatusStyles from "./BatteryStatus.pcss";
 import Battery from "./components/Battery/Battery";
 
@@ -9,15 +9,22 @@ interface BatteryProps extends PresentationComponentProps {
   puffer: string;
   charging: string;
   batteryChargeStatus?: number;
+  batteryState: string;
 }
 
 export default class BatteryStatus extends PresentationComponent<BatteryProps, {}> {
   public render() {
-    const { range, airConditioning, puffer, charging } = this.props;
+    const {batteryState, chargeStatus, range, airConditioning, puffer, charging} = this.props;
+
+    const colorRange = {
+      error: ["#750900", "#c6462b", "#b74424", "#df0a00", "#590700"],
+      warning: ["#754f00", "#f2bb00", "#dbb300", "#df8f00", "#593c00"],
+      ok: ["#316d08", "#60b939", "#51aa31", "#64ce11", "#255405"]
+    };
 
     return (
       <div className={batteryStatusStyles.batteryStatus}>
-        <Battery width="100px" height="50px" />
+        <Battery width="100px" height="50px" charge={chargeStatus} colorRange={colorRange[batteryState]} />
         <div className={batteryStatusStyles.infos}>
           <p>{range}</p>
           <p>{airConditioning}</p>
