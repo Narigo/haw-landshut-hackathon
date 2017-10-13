@@ -1,4 +1,5 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const postcssImport = require("postcss-import");
 const postcssCssnext = require("postcss-cssnext");
 
@@ -61,7 +62,12 @@ const CONFIG = {
   },
   resolve: {
     extensions: [".js", ".json", ".ts", ".tsx"]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.normalize(`${BASE_DIR}/src/dashboard/templates/index.ejs`)
+    })
+  ]
 };
 
 module.exports = CONFIG;
