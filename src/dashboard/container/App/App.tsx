@@ -1,9 +1,7 @@
 import * as React from "react";
-import * as appStyles from "./App.pcss";
 
-export default class App extends React.Component<{children: any}, {}> {
+export default class App extends React.Component<{}, {}> {
   public render() {
-    const {children} = this.props;
-    return <div className={appStyles.app}>{children}</div>;
+    return <div>test</div>;
   }
 }

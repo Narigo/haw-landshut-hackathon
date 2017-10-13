@@ -9,4 +9,7 @@
 const config = require("../webpack/webpack.config.js");
 // const genDefaultConfig = require("@storybook/react/dist/server/config/defaults/webpack.config.js");
 
-module.exports = config;
+module.exports = {
+  module: config.module,
+  resolve: config.resolve
+};

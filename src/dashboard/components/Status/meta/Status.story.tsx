@@ -8,7 +8,7 @@ import Status from "../Status";
 import DriverProfile from "./../../DriverProfile/DriverProfile";
 import App from "./../../../container/App/App";
 
-import * as portraitImage from "./../../../../../ressources/images/portrait.jpg"
+import * as portraitImage from "../../../../resources/images/portrait.jpg"
 
 storiesOf("Status", App)
   .add("Status positive", () => (

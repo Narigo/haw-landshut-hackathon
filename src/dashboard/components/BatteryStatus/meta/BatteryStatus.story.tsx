@@ -4,10 +4,9 @@ import {storiesOf} from "@storybook/react";
 
 import {action} from "@storybook/addon-actions";
 
-import App from "./../../../container/App/App";
 import BatteryStatus from "./../BatteryStatus";
 
-storiesOf("BatteryStatus", App)
+storiesOf("BatteryStatus", module)
   .add("BatteryStatus View", () => (
     <BatteryStatus
       range="Reichweite ca 220 km"
