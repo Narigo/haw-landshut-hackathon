@@ -9,7 +9,7 @@ router.get("/", (req, res, next) => {
   }
 
   const [lat, lng] = req.query.location.split(",").map(parseFloat);
-  const result = { location: { lat, lng }, temperature:{celcius:19.2} };
+  const result = { location: { lat, lng }, temperature: { celcius: 19.2 } };
   res.end(JSON.stringify(result));
 });
 

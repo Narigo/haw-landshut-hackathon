@@ -21,7 +21,7 @@ const CONFIG = {
     rules: [
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
-        use: ['file-loader']
+        use: ["file-loader"]
       },
       {
         test: /\.tsx?$/,

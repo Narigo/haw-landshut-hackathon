@@ -12,7 +12,8 @@ export default class Status extends PresentationComponent<Props, {}> {
     const { imgSrc, position } = this.props;
 
     const statusStyles = {
-      float: position
+      top: 10,
+      [position]: 10
     };
 
     return (
