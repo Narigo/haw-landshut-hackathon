@@ -49,7 +49,7 @@ describe("drivingDistanceCalculator", () => {
         const json = JSON.parse(res.text);
 
         assert(Array.isArray(json.start));
-        assert(Array.isArray(json.start));
+        assert(Array.isArray(json.end));
         assert.equal(typeof json.distance, "object");
       });
   });
