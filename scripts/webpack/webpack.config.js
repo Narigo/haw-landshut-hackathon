@@ -1,4 +1,5 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const postcssImport = require("postcss-import");
 const postcssCssnext = require("postcss-cssnext");
 
@@ -33,7 +34,7 @@ const CONFIG = {
       {
         test: /\.pcss$/,
         use: [
-          { loader: "style-loader" },
+          {loader: "style-loader"},
           {
             loader: "css-loader",
             options: {
@@ -46,8 +47,8 @@ const CONFIG = {
             loader: "postcss-loader",
             options: {
               plugins: loader => [
-                postcssImport({ root: loader.resourcePath }),
-                postcssCssnext({ browsers: supportedBrowsers })
+                postcssImport({root: loader.resourcePath}),
+                postcssCssnext({browsers: supportedBrowsers})
               ]
             }
           }
@@ -57,7 +58,10 @@ const CONFIG = {
   },
   resolve: {
     extensions: [".js", ".json", ".ts", ".tsx"]
-  }
+  },
+  plugins: [new HtmlWebpackPlugin({
+    template: path.normalize(`${BASE_DIR}/src/dashboard/templates/index.ejs`)
+  })]
 };
 
 module.exports = CONFIG;
