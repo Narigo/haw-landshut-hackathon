@@ -14,7 +14,6 @@ storiesOf("Appointments", module)
     <Appointments appointments={[randomAppointment(), randomAppointment(), randomAppointment()].sort((a, b) => a.time.diff(b.time))} />
   ));
 
-let next = 0;
 const startLat = 48.5560425;
 const startLng = 12.1975011;
 function randomAppointment() {

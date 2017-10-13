@@ -4,7 +4,7 @@ import Appointment, { AppointmentType } from "./../Appointment/Appointment";
 import * as styles from "./Appointments.pcss";
 
 interface AppointmentsProps extends PresentationComponentProps {
-  appointments: Array<AppointmentType>;
+  appointments: AppointmentType[];
 }
 
 export default class Appointments extends PresentationComponent<AppointmentsProps, {}> {
@@ -12,7 +12,8 @@ export default class Appointments extends PresentationComponent<AppointmentsProp
     const { appointments } = this.props;
     return (
       <div className={styles.appointments}>
-        <ul>{appointments.map(appointment => <Appointment appointment={appointment} />)}</ul>
+        <h2>Termine</h2>
+        <ul>{appointments.map((appointment, idx) => <Appointment key={idx} appointment={appointment} />)}</ul>
       </div>
     );
   }

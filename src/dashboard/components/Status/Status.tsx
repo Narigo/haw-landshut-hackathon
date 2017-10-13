@@ -5,8 +5,8 @@ import PresentationComponent, {PresentationComponentProps} from "../Presentation
 import * as statusStyles from "./Status.pcss";
 
 interface StatusProps extends PresentationComponentProps {
-  statusText: String;
-  status: String;
+  statusText: string;
+  status: string;
 }
 
 export default class Status extends PresentationComponent<StatusProps, {}> {

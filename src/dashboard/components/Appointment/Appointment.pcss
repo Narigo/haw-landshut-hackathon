@@ -1,9 +1,13 @@
 .appointment {
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+
   & .text {
-    font-weight: bold;
+    align-self: flex-start;
   }
 
   & .time {
-    font-weight: lighter;
+    align-self: flex-end;
   }
 }

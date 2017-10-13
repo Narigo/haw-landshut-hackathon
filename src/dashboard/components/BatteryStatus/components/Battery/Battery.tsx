@@ -7,7 +7,7 @@ import * as batteryStyles from "./Battery.pcss";
 export interface BatteryProps extends PresentationComponentProps {
   width: string;
   height: string;
-  colorRange?: Array<any>;
+  colorRange?: any[];
   charge?: number;
 }
 
@@ -16,8 +16,8 @@ export default class Battery extends PresentationComponent<BatteryProps, {}> {
     const { height, width, colorRange = [], charge = 0 } = this.props;
 
     const batteryInlineStyles = {
-      width: width,
-      height: height,
+      width,
+      height,
       transform: "rotate(-90deg)",
       backgroundImage: `linear-gradient(to right, transparent 5%, ${colorRange[0]} 5%, ${colorRange[0]} 7%, ${colorRange[1]} 8%, ${colorRange[1]} 10%, ${colorRange[2]} 11%, ${colorRange[2]} ${charge -
         3}%, ${colorRange[3]} ${charge - 2}%, ${colorRange[3]} ${charge}%, ${colorRange[4]} ${charge}%, black ${charge +
