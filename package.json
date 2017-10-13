@@ -1,0 +1,88 @@
+{
+  "name": "haw-landshut-hackathon",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run check && webpack --config scripts/webpack/webpack.config.js",
+    "check": "node scripts/checkVersion.js",
+    "dev": "npm run check && webpack-dev-server --config scripts/webpack/webpack.config.js --watch --content-base build/dashboard",
+    "format": "npm run check && prettier --config .prettierrc --write {src,scripts}/**/*.{js,jsx,scss,ts,tsx}",
+    "lint": "npm run check && tslint \"src/**/*.{ts,tsx}\"",
+    "preinstall": "npm run check",
+    "start": "npm run check && webpack-dev-server --config scripts/webpack/webpack.config.js",
+    "test": "npm run check && jest --coverage --coverageDirectory=build/coverage",
+    "test-watch": "npm run check && jest --watchAll",
+    "storybook": "start-storybook -p 6006 -c scripts/storybook",
+    "build-storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Narigo/haw-landshut-hackathon.git"
+  },
+  "keywords": [],
+  "author": "Joern Bernhardt <jb@campudus.com> (http://www.campudus.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Narigo/haw-landshut-hackathon/issues"
+  },
+  "engines": {
+    "node": "8.6.0"
+  },
+  "homepage": "https://github.com/Narigo/haw-landshut-hackathon#readme",
+  "devDependencies": {
+    "@storybook/addon-actions": "3.2.12",
+    "@storybook/addon-links": "3.2.12",
+    "@storybook/react": "3.2.12",
+    "@types/classnames": "2.2.3",
+    "@types/gulp": "4.0.4",
+    "@types/jest": "21.1.2",
+    "@types/node": "8.0.34",
+    "@types/react": "16.0.10",
+    "@types/react-dom": "16.0.1",
+    "@types/react-test-renderer": "16.0.0",
+    "@types/webpack": "3.0.13",
+    "concurrently": "3.5.0",
+    "css-loader": "0.28.7",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "21.2.1",
+    "postcss-cssnext": "3.0.2",
+    "postcss-import": "11.0.0",
+    "postcss-loader": "2.0.7",
+    "prettier": "1.7.4",
+    "react-test-renderer": "16.0.0",
+    "style-loader": "0.19.0",
+    "ts-jest": "21.1.2",
+    "ts-loader": "2.3.7",
+    "tslint": "5.7.0",
+    "tslint-config-prettier": "1.5.0",
+    "tslint-eslint-rules": "4.1.1",
+    "tslint-react": "3.2.0",
+    "typescript": "2.5.3",
+    "webpack": "3.7.1",
+    "webpack-dev-server": "^2.9.1"
+  },
+  "dependencies": {
+    "classnames": "2.2.5",
+    "react": "16.0.0",
+    "react-dom": "16.0.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json",
+      "jsx"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpe?g|gif|png|svg)": "<rootDir>/src/specs/fileMock.js",
+      "\\.pcss$": "identity-obj-proxy"
+    }
+  }
+}
