@@ -19,6 +19,10 @@ const CONFIG = {
   module: {
     rules: [
       {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: ['file-loader']
+      },
+      {
         test: /\.tsx?$/,
         use: [
           {
