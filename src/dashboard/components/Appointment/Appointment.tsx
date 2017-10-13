@@ -21,7 +21,6 @@ interface AppointmentProps extends PresentationComponentProps {
 export default class Appointment extends PresentationComponent<AppointmentProps, {}> {
   public render() {
     const { appointment } = this.props;
-    console.log(appointment.time);
     const timeDiff = moment(appointment.time).fromNow();
     return (
       <li className={styles.appointment}>

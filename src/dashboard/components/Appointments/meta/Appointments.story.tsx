@@ -11,7 +11,7 @@ import * as moment from "moment";
 storiesOf("Appointments", module)
   .add("single appointment", () => <Appointments appointments={[randomAppointment()]} />)
   .add("multiple appointments", () => (
-    <Appointments appointments={[randomAppointment(), randomAppointment(), randomAppointment()]} />
+    <Appointments appointments={[randomAppointment(), randomAppointment(), randomAppointment()].sort((a, b) => a.time.diff(b.time))} />
   ));
 
 let next = 0;
