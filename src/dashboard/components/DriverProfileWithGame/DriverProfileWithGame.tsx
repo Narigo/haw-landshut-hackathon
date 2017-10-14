@@ -16,17 +16,15 @@ export default class Status extends PresentationComponent<Props, {}> {
     };
 
     return (
-
       <div className={driverProfileStyles.driverProfile}>
-         <div className={driverProfileStyles.c100}>
-         <img src={imgSrc} alt="Driver Profile" />
-              <span>25%</span>
-              <div className={driverProfileStyles.bar}/>
-              <div className={driverProfileStyles.fill}/>
-              </div>
-            <p>.big</p>
-       
-  </div>
+        <div className={driverProfileStyles.c100}>
+          <img src={imgSrc} alt="Driver Profile" />
+          <span>25%</span>
+          <div className={driverProfileStyles.bar} />
+          <div className={driverProfileStyles.fill} />
+        </div>
+        <p>.big</p>
+      </div>
     );
   }
 }

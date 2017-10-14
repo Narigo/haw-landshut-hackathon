@@ -1,6 +1,6 @@
 import { Location } from "../components/Appointment/Appointment";
 
-const { apiPath, distanceCalculatorApi } = require("./../../shared/apiServers");
+import { apiPath, distanceCalculatorApi } from "./../../shared/apiServers.js";
 
 export async function loadDistance(fromLocation: Location, toLocation: Location) {
   return fetch(

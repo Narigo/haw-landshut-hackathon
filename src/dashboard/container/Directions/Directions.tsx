@@ -27,11 +27,11 @@ export default class Directions extends React.Component<{}, DirectionsProps> {
     return isResolved ? <Appointments appointments={appointments} /> : <Loader />;
   }
 
-  componentWillUnmount() {
+  public componentWillUnmount() {
     this.setState({ appointmentsPromise: null });
   }
 
-  componentWillMount() {
+  public componentWillMount() {
     const promise = currentPositionLoader
       .loadCurrentPosition()
       .then(appointmentsLoader.loadAppointmentsWithDirections)
