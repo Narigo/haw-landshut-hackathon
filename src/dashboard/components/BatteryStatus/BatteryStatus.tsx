@@ -25,7 +25,7 @@ export default class BatteryStatus extends PresentationComponent<BatteryProps, {
 
     return (
       <div className={batteryStatusStyles.batteryStatus}>
-        <h1>Aktueller Batteriestatus</h1>
+        <h2>Aktueller Batteriestatus</h2>
         <div className={batteryStatusStyles.statusWrapper}>
           <Battery width="100px" height="50px" charge={chargeStatus} colorRange={colorRange[batteryState]} />
           <div className={batteryStatusStyles.infos}>

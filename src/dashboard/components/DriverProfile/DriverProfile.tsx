@@ -4,21 +4,15 @@ import * as driverProfileStyles from "./DriverProfile.pcss";
 
 interface Props extends PresentationComponentProps {
   imgSrc: string;
-  position?: string;
 }
 
 export default class Status extends PresentationComponent<Props, {}> {
   public render() {
-    const { imgSrc, position } = this.props;
-
-    const statusStyles = {
-      top: 10,
-      [position]: 10
-    };
+    const { imgSrc } = this.props;
 
     return (
-      <div style={statusStyles} className={driverProfileStyles.driverProfile}>
-        <img src={imgSrc} alt="Driver Profile" />
+      <div className={driverProfileStyles.driverProfile}>
+        <img className={driverProfileStyles.image} src={imgSrc} alt="Driver Profile" />
       </div>
     );
   }

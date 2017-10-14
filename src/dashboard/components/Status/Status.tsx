@@ -14,7 +14,7 @@ export default class Status extends PresentationComponent<StatusProps, {}> {
     const {statusText, children, status} = this.props;
 
     const statusHexcodes = {
-      ok: "#64ce11",
+      ok: "#55b00f",
       error: "#df0a00",
       warning: "#df8f00"
     };
@@ -25,7 +25,7 @@ export default class Status extends PresentationComponent<StatusProps, {}> {
 
     return (
       <div style={statusInlineStyles} className={statusStyles.status}>
-        <p>{statusText}</p>
+        <div className={statusStyles.text}>{statusText}</div>
         {children}
       </div>
     );

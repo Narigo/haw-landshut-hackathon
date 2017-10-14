@@ -1,3 +1,11 @@
 .widgetList {
   max-width:50%;
+
+  & > div {
+    border-bottom: var(--component-border);
+  }
+
+  & > div:last-child {
+    border-bottom: 0;
+  }
 }
