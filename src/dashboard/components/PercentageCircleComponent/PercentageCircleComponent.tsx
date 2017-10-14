@@ -1,6 +1,7 @@
 import * as React from "react";
 import PresentationComponent, { PresentationComponentProps } from "../PresentationComponent/PresentationComponent";
 import * as circleStyles from "./PercentageCircleComponent.pcss";
+import LevelBadge from "./../LevelBadge/LevelBadge"
 
 interface Props extends PresentationComponentProps {
   imgSrc: string;
@@ -34,9 +35,11 @@ export default class PercentageCircleComponent extends PresentationComponent<Pro
       };
 
       return (
+        <div>
       <div
         className={circleStyles.circle}
         style={{
+          [this.props.position] : 10,
           width: this.props.radius * 2,
           height: this.props.radius * 2,
           borderRadius: this.props.radius,
@@ -98,12 +101,13 @@ export default class PercentageCircleComponent extends PresentationComponent<Pro
             backgroundColor: this.props.innerColor,
           }}
         >
-
         <div className={circleStyles.circularWrapper}>
           <img src={this.props.imgSrc} alt="Driver Profile" />
         </div>
        </div>
       </div>
-    );
+      <LevelBadge radius={60} borderWidth={4} level={5} color={"#2ecc71"} />
+        </div>
+        )
   }
 }
