@@ -6,10 +6,11 @@ import * as styles from "./Appointment.pcss";
 export interface AppointmentType {
   text: string;
   location: Location;
+  distance: number;
   time: moment.Moment;
 }
 
-interface Location {
+export interface Location {
   lat: number;
   lng: number;
 }
@@ -25,6 +26,7 @@ export default class Appointment extends PresentationComponent<AppointmentProps,
     return (
       <li className={styles.appointment}>
         <span className={styles.text}>{appointment.text}</span>
+        <span className={styles.time}>{appointment.distance / 1000} km</span>
         <span className={styles.time}>{timeDiff}</span>
       </li>
     );

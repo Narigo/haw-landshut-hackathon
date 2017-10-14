@@ -3,7 +3,7 @@ import PresentationComponent, {PresentationComponentProps} from "../Presentation
 import * as batteryStatusStyles from "./BatteryStatus.pcss";
 import Battery from "./components/Battery/Battery";
 
-interface BatteryProps extends PresentationComponentProps {
+export interface BatteryProps extends PresentationComponentProps {
   range: string;
   airConditioning: string;
   puffer: string;

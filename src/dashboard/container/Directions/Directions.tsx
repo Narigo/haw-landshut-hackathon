@@ -4,6 +4,7 @@ import Appointments from "../../components/Appointments/Appointments";
 import { AppointmentType } from "../../components/Appointment/Appointment";
 
 import * as appointmentsLoader from "./../../services/appointmentsLoader";
+import * as currentPositionLoader from "./../../services/currentPositionLoader";
 import Loader from "../../components/Loader/Loader";
 
 interface DirectionsProps {
@@ -23,9 +24,7 @@ export default class Directions extends React.Component<{}, DirectionsProps> {
   public render() {
     const isResolved = this.state.appointmentsPromise === null;
     const appointments: AppointmentType[] = this.state.appointments;
-    return isResolved
-      ? <Appointments appointments={appointments} />
-      : <Loader/>;
+    return isResolved ? <Appointments appointments={appointments} /> : <Loader />;
   }
 
   componentWillUnmount() {
@@ -33,9 +32,12 @@ export default class Directions extends React.Component<{}, DirectionsProps> {
   }
 
   componentWillMount() {
-    const promise = appointmentsLoader.loadAppointmentsWithDirections().then(appointments => {
-      this.setState({ appointments, appointmentsPromise: null });
-    });
+    const promise = currentPositionLoader
+      .loadCurrentPosition()
+      .then(appointmentsLoader.loadAppointmentsWithDirections)
+      .then(appointments => {
+        this.setState({ appointments, appointmentsPromise: null });
+      });
 
     this.setState({ appointmentsPromise: promise });
   }

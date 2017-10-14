@@ -1,13 +1,20 @@
-import { AppointmentType } from "../components/Appointment/Appointment";
+import * as drivingDistanceCalculator from "./../services/drivingDistanceCalculator";
+import { AppointmentType, Location } from "../components/Appointment/Appointment";
 import * as moment from "moment";
 
-export function loadAppointmentsWithDirections(): Promise<AppointmentType[]> {
-  return new Promise(resolve => {
-    setTimeout(
-      () => resolve([randomAppointment(), randomAppointment(), randomAppointment(), randomAppointment()]),
-      1000
-    );
-  });
+export function loadAppointmentsWithDirections(fromLocation: Location): Promise<AppointmentType[]> {
+  return Promise.all(
+    [randomAppointment(), randomAppointment(), randomAppointment(), randomAppointment()].map(async appointment => {
+      const distance = await drivingDistanceCalculator
+        .loadDistance(fromLocation, appointment.location)
+        .then(res => res.json())
+        .then(res => res.distance.value);
+      return {
+        ...appointment,
+        distance
+      };
+    })
+  );
 }
 
 const startLat = 48.5560425;

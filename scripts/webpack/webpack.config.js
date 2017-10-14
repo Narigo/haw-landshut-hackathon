@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const postcssImport = require("postcss-import");
 const postcssCssnext = require("postcss-cssnext");
+const apiServers = require("./../../src/shared/apiServers");
 
 const BASE_DIR = path.normalize(`${__dirname}/../..`);
 const BUILD_DEST = path.normalize(`${BASE_DIR}/build/dashboard`);
@@ -17,6 +18,14 @@ const CONFIG = {
     path: BUILD_DEST
   },
   devtool: "source-map",
+  devServer: {
+    proxy: {
+      "/api": {
+        target: `http://localhost:${apiServers.port}`,
+        pathRewrite: { "^/api": "" }
+      }
+    }
+  },
   module: {
     rules: [
       {

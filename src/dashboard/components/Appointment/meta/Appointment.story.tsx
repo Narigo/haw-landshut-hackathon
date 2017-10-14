@@ -13,6 +13,7 @@ storiesOf("Appointment", module).add("today", () => (
     appointment={{
       text: "Hackathon @ HAW Landshut",
       location: { lat: 48.5560425, lng: 12.1975011 },
+      distance: 25,
       time: moment(moment.now())
     }}
   />
