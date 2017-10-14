@@ -6,6 +6,8 @@ import {action} from "@storybook/addon-actions";
 
 import Status from "../Status";
 import DriverProfile from "./../../DriverProfile/DriverProfile";
+import LevelBadge from "./../../LevelBadge/LevelBadge";
+import PercentageCircleComponent from "./../../PercentageCircleComponent/PercentageCircleComponent";
 
 import * as portraitImage from "../../../../resources/images/portrait.jpg"
 
@@ -31,6 +33,11 @@ storiesOf("Status", module)
   ))
   .add("Status negative with image", () => (
     <Status statusText="Du hast nicht alles im Griff." status="error">
-      <DriverProfile position="right" imgSrc={portraitImage} />
+      <PercentageCircleComponent imgSrc={portraitImage} radius={60} borderWidth={4} percent={30} color={"#2ecc71"} position="right"/>
     </Status>
-  ));
+  ))
+  .add("Status negative with Gamification Badge", () => (
+    <Status statusText="Du hast nicht alles im Griff." status="error">
+      <PercentageCircleComponent imgSrc={portraitImage} radius={60} borderWidth={4} percent={30} color={"#2ecc71"} position="right"/>
+    </Status>
+  ));;
