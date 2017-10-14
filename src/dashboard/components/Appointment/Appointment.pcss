@@ -2,7 +2,6 @@
   position: relative;
   display: flex;
   justify-content: space-between;
-  align-content: space-between;
   border-bottom: 1px solid #DCDCDC;
   padding: 1em 0;
   margin-left: 3em;
@@ -26,9 +25,20 @@
   & .text {
     font-weight: bold;
     align-self: flex-start;
+    width: 50%;
+  }
+
+  & .distance {
+    width:25%;
+    text-align: right;
+    justify-content: flex-end;
+    align-self: flex-end;
   }
 
   & .time {
+    width:25%;
+    text-align: right;
+    justify-content: flex-end;
     align-self: flex-end;
   }
 }

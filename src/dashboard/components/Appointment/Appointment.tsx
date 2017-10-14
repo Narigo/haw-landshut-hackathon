@@ -26,7 +26,7 @@ export default class Appointment extends PresentationComponent<AppointmentProps,
     return (
       <li className={styles.appointment}>
         <span className={styles.text}>{appointment.text}</span>
-        <span className={styles.time}>{appointment.distance / 1000} km</span>
+        <span className={styles.distance}>{appointment.distance / 1000} km</span>
         <span className={styles.time}>{timeDiff}</span>
       </li>
     );

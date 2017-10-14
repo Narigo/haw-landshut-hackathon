@@ -1,0 +1,24 @@
+.weatherWidget {
+  display: flex;
+  align-items: center;
+  margin-left: 10%;
+  font-size: 5em;
+  height: 25%;
+  color: var(--overlayTextColor);
+  background-position: right;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  &.cloudy {
+    background-image: url("./../../../resources/images/cloudy.svg");
+  }
+  &.rainy {
+    background-image: url("./../../../resources/images/rainy.svg");
+  }
+  &.snowy {
+    background-image: url("./../../../resources/images/snowy.svg");
+  }
+  &.sunny {
+    background-image: url("./../../../resources/images/sunny.svg");
+  }
+}
