@@ -1,5 +1,6 @@
 import * as React from "react";
-import PresentationComponent, {PresentationComponentProps} from "../PresentationComponent/PresentationComponent";
+import PresentationComponent, { PresentationComponentProps } from "../PresentationComponent/PresentationComponent";
+import * as classnames from "classnames";
 import * as batteryStatusStyles from "./BatteryStatus.pcss";
 import Battery from "./components/Battery/Battery";
 
@@ -8,14 +9,24 @@ export interface BatteryProps extends PresentationComponentProps {
   airConditioning: string;
   puffer: string;
   charging: string;
-  chargeStatus: number,
+  chargeStatus: number;
   batteryChargeStatus?: number;
   batteryState: string;
 }
 
-export default class BatteryStatus extends PresentationComponent<BatteryProps, {}> {
+interface BatteryState {
+  isOpen: boolean;
+}
+
+export default class BatteryStatus extends PresentationComponent<BatteryProps, BatteryState> {
+  constructor() {
+    super();
+    this.state = { isOpen: false };
+    this.handleClick = this.handleClick.bind(this);
+  }
   public render() {
-    const {batteryState, chargeStatus, range, airConditioning, puffer, charging} = this.props;
+    const { batteryState, chargeStatus, children, range, airConditioning, puffer, charging } = this.props;
+    const { isOpen } = this.state;
 
     const colorRange = {
       error: ["#750900", "#c6462b", "#b74424", "#df0a00", "#590700"],
@@ -24,7 +35,10 @@ export default class BatteryStatus extends PresentationComponent<BatteryProps, {
     };
 
     return (
-      <div className={batteryStatusStyles.batteryStatus}>
+      <div
+        className={classnames(batteryStatusStyles.batteryStatus, isOpen && batteryStatusStyles.isOpen, !isOpen && batteryStatusStyles.isClosed)}
+        onClick={this.handleClick}
+      >
         <h2>Aktueller Batteriestatus</h2>
         <div className={batteryStatusStyles.statusWrapper}>
           <Battery width="100px" height="50px" charge={chargeStatus} colorRange={colorRange[batteryState]} />
@@ -35,7 +49,13 @@ export default class BatteryStatus extends PresentationComponent<BatteryProps, {
             <p>{charging}</p>
           </div>
         </div>
+        <div className={batteryStatusStyles.moreButton}>Mehr Informationen ...</div>
+        <div className={batteryStatusStyles.children}>{this.state.isOpen && children}</div>
       </div>
     );
+  }
+
+  private handleClick() {
+    this.setState({ isOpen: !this.state.isOpen });
   }
 }

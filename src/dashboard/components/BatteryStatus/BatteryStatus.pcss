@@ -1,4 +1,5 @@
 .batteryStatus {
+  flex: 1;
   padding: 0.5em 1em;
   background-color: var(--component-background);
 
@@ -9,5 +10,34 @@
   & .statusWrapper {
     display: flex;
     align-items: center;
+  }
+
+  &.isOpen {
+    position: absolute;
+    top:0;
+    left: 0;
+    height:100%;
+    width:100%;
+
+    & .moreButton {
+      display: none;
+    }
+
+    & .children {
+      display: block;
+    }
+  }
+
+  &.isClosed {
+    position: inherit;
+
+    & .moreButton {
+      display: block;
+      color: var(--highlightColor);
+    }
+
+    & .children {
+      display: none;
+    }
   }
 }

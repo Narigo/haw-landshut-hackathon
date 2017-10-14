@@ -1,8 +1,8 @@
 import * as React from "react";
 
-import { storiesOf } from "@storybook/react";
+import {storiesOf} from "@storybook/react";
 
-import { action } from "@storybook/addon-actions";
+import {action} from "@storybook/addon-actions";
 
 import * as moment from "moment";
 
@@ -16,13 +16,19 @@ import Apps from "../../Apps/Apps";
 import WeatherWidget from "../../WeatherWidget/WeatherWidget";
 import WidgetList from "../../WidgetList/WidgetList";
 
+const heightWrapperStyle = {
+  display: "flex",
+  flex: 1,
+  "flex-direction": "row"
+};
+
 storiesOf("Layout", module)
   .add("positive layout", () => (
     <Layout>
       <Status statusText="Du hast alles im Griff." status="ok">
-        <DriverProfile position="right" imgSrc={portraitImage} />
+        <DriverProfile imgSrc={portraitImage} />
       </Status>
-      <div>
+      <div style={heightWrapperStyle}>
         <WidgetList>
           <Appointments
             appointments={[randomAppointment(), randomAppointment(), randomAppointment()].sort((a, b) =>
@@ -36,20 +42,22 @@ storiesOf("Layout", module)
             airConditioning="Die Klimaautomatik ist vorrübergehend inaktiv."
             puffer="Puffer 75 km."
             charging="Smart Charging ist aktiv."
-          />
+          >
+            <p>hello.</p>
+          </BatteryStatus>
         </WidgetList>
-        <Apps backgroundImageClass={"streetImage"}>
-          <WeatherWidget temperature={"19° C"} weather={"cloudy"} />
-        </Apps>
+      <Apps backgroundImageClass={"streetImage"}>
+        <WeatherWidget temperature={"19° C"} weather={"cloudy"} />
+      </Apps>
       </div>
     </Layout>
   ))
   .add("warning layout", () => (
     <Layout>
       <Status statusText="Der Verbrauch neigt sich dem Ende." status="warning">
-        <DriverProfile position="right" imgSrc={portraitImage} />
+        <DriverProfile imgSrc={portraitImage} />
       </Status>
-      <div>
+      <div style={heightWrapperStyle}>
         <WidgetList>
           <Appointments
             appointments={[randomAppointment(), randomAppointment(), randomAppointment()].sort((a, b) =>
@@ -63,7 +71,9 @@ storiesOf("Layout", module)
             airConditioning="Die Klimaautomatik ist vorrübergehend inaktiv."
             puffer="Puffer 75 km."
             charging="Smart Charging ist aktiv."
-          />
+          >
+            <p>hello.</p>
+          </BatteryStatus>
         </WidgetList>
         <Apps backgroundImageClass={"streetImage"}>
           <WeatherWidget temperature={"19° C"} weather={"cloudy"} />
@@ -74,9 +84,9 @@ storiesOf("Layout", module)
   .add("error layout", () => (
     <Layout>
       <Status statusText="Suchen Sie demnächst dringend eine SmartStation auf." status="error">
-        <DriverProfile position="right" imgSrc={portraitImage} />
+        <DriverProfile imgSrc={portraitImage} />
       </Status>
-      <div>
+      <div style={heightWrapperStyle}>
         <WidgetList>
           <Appointments
             appointments={[randomAppointment(), randomAppointment(), randomAppointment()].sort((a, b) =>
@@ -90,7 +100,9 @@ storiesOf("Layout", module)
             airConditioning="Die Klimaautomatik ist vorrübergehend inaktiv."
             puffer="Puffer 65 km."
             charging="Smart Charging ist aktiv."
-          />
+          >
+            <p>hello.</p>
+          </BatteryStatus>
         </WidgetList>
         <Apps backgroundImageClass={"streetImage"}>
           <WeatherWidget temperature={"19° C"} weather={"cloudy"} />
@@ -101,10 +113,11 @@ storiesOf("Layout", module)
 
 const startLat = 48.5560425;
 const startLng = 12.1975011;
+
 function randomAppointment() {
   return {
     text: texts[Math.floor(Math.random() * texts.length)],
-    location: { lat: startLat + (Math.random() * 0.01 - 0.05), lng: startLng + (Math.random() * 0.01 - 0.05) },
+    location: {lat: startLat + (Math.random() * 0.01 - 0.05), lng: startLng + (Math.random() * 0.01 - 0.05)},
     distance: Math.round(Math.random() * 15000),
     time: moment(moment.now()).add(Math.random() * 60 * 60 * 24 * 3, "seconds")
   };

@@ -1,12 +1,13 @@
 .layout {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height:100%;
+
   & > :nth-child(2) {
     display: flex;
     background-color: #7F7F7F;
-    flex-direction: row;
     align-items: stretch;
     justify-content:space-between;
-    & > div {
-      flex-grow: 1;
-    }
   }
 }

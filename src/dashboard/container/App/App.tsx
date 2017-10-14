@@ -9,15 +9,22 @@ import * as portraitImage from "./../../../resources/images/portrait.jpg";
 import Apps from "../../components/Apps/Apps";
 import WidgetList from "../../components/WidgetList/WidgetList";
 import WeatherWidget from "../../components/WeatherWidget/WeatherWidget";
+import "./App.pcss";
 
 export default class App extends React.Component<{}, {}> {
   public render() {
     return (
       <Layout>
         <Status status={"ok"} statusText={"Du hast alles im Griff. Dein Auto ist in bestem Zustand!"}>
-          <DriverProfile position="right" imgSrc={portraitImage} />
+          <DriverProfile imgSrc={portraitImage} />
         </Status>
-        <div>
+        <div
+          style={{
+            display: "flex",
+            flex: 1,
+            "flex-direction": "row"
+          }}
+        >
           <WidgetList>
             <Directions />
             <CarStatus />
