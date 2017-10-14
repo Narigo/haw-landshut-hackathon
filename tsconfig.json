@@ -4,6 +4,7 @@
     "module": "commonjs",
     "noImplicitAny": true,
     "sourceMap": true,
-    "target": "es2016"
+    "target": "es2016",
+    "allowJs": true
   }
 }
