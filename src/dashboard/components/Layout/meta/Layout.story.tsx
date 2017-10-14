@@ -86,7 +86,7 @@ storiesOf("Layout", module)
           <BatteryStatus
             batteryState="error"
             chargeStatus={18}
-            range="Ihre Reichweite ist aufgebraucht. Ihr Fahrzeug nutzt den Puffer."
+            range="Die Reichweite ist aufgebraucht! Wir nutzen den Puffer."
             airConditioning="Die Klimaautomatik ist vorrübergehend inaktiv."
             puffer="Puffer 65 km."
             charging="Smart Charging ist aktiv."
